@@ -1,3 +1,4 @@
+
 select
     count(*) as trips,
     count(distinct user_id) as users,

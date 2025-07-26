@@ -1,3 +1,4 @@
+{{ config(materialized='incremental') }}
 select
     t.*,
     u.sex,

@@ -17,4 +17,5 @@ clean-targets:
 
 models:
   dbt_scooters:
+    +schema: marts
     +materialized: "table"

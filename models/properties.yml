@@ -3,6 +3,7 @@ version: 2
 
 sources:
   - name: "scooters_raw"
+#    schema: "scooters_raw"
     description: "Raw data provided by scooters service"
     loader: "https://t.me/inzhenerka_dbt_bot"
     tables:
@@ -14,6 +15,9 @@ sources:
 
       - name: "users"
         description: "Users of scooter service"
+
+      - name: "events"
+        description: "Raw user events with duplicates"
 
       - name: "trips_prep"
         description: "Trips prepared for analysis"
@@ -39,5 +43,10 @@ sources:
 
       - name: "trips_users"
         description: "Prepared trips enriched with users data"
+        config:
+          materialized: "incremental"
+
+      - name: "events_clean"
+        description: "User events without duplicates"
         config:
           materialized: "incremental"
